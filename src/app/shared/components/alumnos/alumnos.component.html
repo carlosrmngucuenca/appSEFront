@@ -1,0 +1,26 @@
+<button (click)="createNewAlumno()"></button>
+<div class="alumnos--grid">
+  <app-alumno
+    [alumno]="alumno"
+    *ngFor="let alumno of alumnos"
+    (addData)="addDataToCart($event)"
+    (showalumnoData)="onShowDetail($event)"
+  ></app-alumno>
+  <button (click)="loadMore()">Load More</button>
+</div>
+
+<div class="alumno-detail" [class.active]="showAlumnoDetail">
+  <div *ngIf="alumnoChosen">
+    <button (click)="toggleAlumnoDetail()">Close</button>
+    <p>hola estoy aqui en esta prsentacion</p>
+    <h1>{{ alumnoChosen.title }}</h1>
+    <swiper [slidesPerView]="1">
+      <ng-template swiperSlide *ngFor="let img of alumnoChosen.images">
+        <img [src]="img" alt="" />
+      </ng-template>
+    </swiper>
+    <p>{{ alumnoChosen.description }}</p>
+    <button (click)="updateAlumno()">Editar</button>
+    <button (click)="deleteAlumno()">Eliminar</button>
+  </div>
+</div>

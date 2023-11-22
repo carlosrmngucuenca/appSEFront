@@ -1,0 +1,14 @@
+<a [routerLink]="['/alumno', alumno.id]">
+  <app-img
+    *ngIf="alumno.images.length > 0"
+    [miImagen]="alumno.images[0]"
+  ></app-img>
+</a>
+
+<h2>{{ alumno.title }}</h2>
+<p>{{ alumno.id }}</p>
+<button (click)="agregarDatos()">
+  Agregar la cantidad de items al carrito
+</button>
+<a routerLink="." [queryParams]="{ product: alumno.id }">Ver detalle</a>
+<!-- <button (click)="showAlumnoDetail()">Ver detalle del carrito</button>-->

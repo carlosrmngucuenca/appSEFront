@@ -1,0 +1,12 @@
+<p>Clases</p>
+<img
+  width="200"
+  (load)="imageLoad()"
+  (error)="imgError()"
+  [src]="imagen"
+  alt=""
+  *ngIf="imagen; else elseImg"
+/>
+<ng-template #elseImg>
+  <img [src]="imageDefault" alt="" />
+</ng-template>

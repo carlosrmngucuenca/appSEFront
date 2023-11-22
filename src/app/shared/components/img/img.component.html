@@ -1,0 +1,12 @@
+<h1>La imagen avatar esta aqui</h1>
+<p>img works!</p>
+<img
+  width="200px"
+  (error)="noLoad()"
+  [src]="miImagen"
+  alt=""
+  *ngIf="miImagen; else noImg"
+/>
+<ng-template #noImg>
+  <img src="" alt="" />
+</ng-template>
